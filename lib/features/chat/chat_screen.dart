@@ -6,7 +6,6 @@ import 'package:app/components/menus/prefix_menu.dart';
 import 'package:app/extensions/flutter_ext.dart';
 import 'package:app/features/chat/chat_view_model.dart';
 import 'package:app/features/chat/components/chat_app_bar.dart';
-import 'package:app/features/chat/components/chat_appointment_info.dart';
 import 'package:app/features/chat/components/chat_image_loader.dart';
 import 'package:app/features/chat/components/chat_images_list.dart';
 import 'package:app/features/chat/components/chat_suggestions_list.dart';
@@ -96,8 +95,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   const SizedBox(height: 60),
                   ChatUserInfo(buddy: widget.buddy),
-                  const SizedBox(height: 24),
-                  const ChatAppointmentInfo(appointment: ''),
                   const SizedBox(height: 24),
                   if (_modelData.pageLoader) const Padding(padding: EdgeInsets.only(bottom: 24), child: CircleLoader()),
                   if (_modelData.messages.isNotEmpty) MessagesList(messages: _modelData.messages, sender: _modelData.sender),

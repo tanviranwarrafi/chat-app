@@ -31,7 +31,7 @@ class ChatAppBar extends StatelessWidget {
           errorWidget: Image.asset(Assets.png_image.profile, height: 34),
         ),
         const SizedBox(width: 12),
-        Expanded(child: Text(buddy.name ?? '', style: TextStyles.text18_600.copyWith(color: grey1, height: 1.2))),
+        Expanded(child: Text(buddy.user?.name ?? '', style: TextStyles.text18_600.copyWith(color: grey1, height: 1.2))),
         const SizedBox(width: 12),
         InkWell(onTap: onMoreVert, child: SvgImage(image: Assets.svg.dots_three_vertical, height: 24, color: grey1)),
       ],

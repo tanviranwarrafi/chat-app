@@ -21,7 +21,7 @@ class FlushPopup {
   }
 
   void onWarning({required String message}) {
-    var dataModel = _FLushModel(title: 'Attention!', message: message, background: warning, icon: Assets.svg.info_1);
+    var dataModel = _FLushModel(title: 'Attention!', message: message, background: warning, icon: Assets.svg.info);
     _showFlushbar(model: dataModel);
   }
 
@@ -46,7 +46,7 @@ class FlushPopup {
       dismissDirection: direction,
       padding: padding,
       margin: margin,
-      icon: model.icon.isEmpty ? null : SvgImage(image: Assets.svg.info_1, height: 28, color: white),
+      icon: model.icon.isEmpty ? null : SvgImage(image: Assets.svg.info, height: 28, color: white),
       backgroundColor: model.background,
       duration: const Duration(seconds: 3),
       flushbarPosition: FlushbarPosition.TOP,

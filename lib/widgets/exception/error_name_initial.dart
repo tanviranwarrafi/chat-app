@@ -15,7 +15,7 @@ class ErrorNameInitial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (initial.isEmpty) {
-      return Center(child: SvgImage(image: Assets.svg.user_1, height: iconSize, color: grey3));
+      return Center(child: SvgImage(image: Assets.svg.user, height: iconSize, color: grey3));
     } else {
       return Center(
         child: Text(

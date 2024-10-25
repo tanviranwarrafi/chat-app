@@ -5,25 +5,15 @@ import 'package:app/models/chat/chat_buddy.dart';
 import 'package:app/models/chat/chat_content.dart';
 import 'package:app/models/chat/chat_message.dart';
 import 'package:app/models/system/api_response.dart';
-import 'package:app/models/user/user.dart';
 import 'package:app/utils/keys.dart';
 import 'package:provider/provider.dart';
 
 class ChatRepository {
   Future<List<ChatBuddy>> fetchChatBuddies() async {
-    // var isAgent = sl<StorageService>().user.is_agent_type;
-    // var agentId = sl<StorageService>().defaultAgent.id;
-    // var endpoint = isAgent ? '${ApiUrl.agent.buddyList}$agentId' : ApiUrl.user.buddyList;
-    // var apiResponse = await sl<ApiInterceptor>().getRequest(endpoint: endpoint, header: Header.auth);
     await Future.delayed(const Duration(seconds: 1));
     var apiResponse = ApiResponse(status: 200, response: {});
-    if (apiResponse.status == 200) {
-      // var buddyApi = ChatBuddyApi.fromJson(apiResponse.response);
-      // return buddyApi.buddies.haveList ? buddyApi.buddies! : [];
-      return CHAT_BUDDIES;
-    } else {
-      return [];
-    }
+    if (apiResponse.status != 200) return [];
+    return CHAT_BUDDIES;
   }
 
   Future<List<ChatMessage>> fetchConversations({required ChatBuddy buddy, required int page}) async {
@@ -89,126 +79,3 @@ class ChatRepository {
     return true;
   }
 }
-
-List<ChatBuddy> CHAT_BUDDIES = [
-  ChatBuddy(
-    id: 1,
-    name: 'John Doe',
-    brokerageHouseId: 101,
-    lastSendTime: '2024-10-07 14:30',
-    user: User(id: 1, name: 'johndoe', email: 'john@example.com'),
-    message: 'Hey, how are you?',
-    sendTimeInSec: 1633025456,
-    isFavourite: true,
-  ),
-  ChatBuddy(
-    id: 2,
-    name: 'Jane Smith',
-    brokerageHouseId: 102,
-    lastSendTime: '2024-10-07 14:00',
-    user: User(id: 2, name: 'janesmith', email: 'jane@example.com'),
-    message: 'Meeting tomorrow at 10?',
-    sendTimeInSec: 1633025087,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 3,
-    name: 'David Brown',
-    brokerageHouseId: 103,
-    lastSendTime: '2024-10-07 12:15',
-    user: User(id: 3, name: 'davidbrown', email: 'david@example.com'),
-    message: 'Please review the report.',
-    sendTimeInSec: 1633018052,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 4,
-    name: 'Emily Clark',
-    brokerageHouseId: 104,
-    lastSendTime: '2024-10-07 11:45',
-    user: User(id: 4, name: 'emilyclark', email: 'emily@example.com'),
-    message: "I'll send the documents later.",
-    sendTimeInSec: 1633015924,
-    isFavourite: true,
-  ),
-  ChatBuddy(
-    id: 1,
-    name: 'John Doe',
-    brokerageHouseId: 101,
-    lastSendTime: '2024-10-07 14:30',
-    user: User(id: 1, name: 'johndoe', email: 'john@example.com'),
-    message: 'Hey, how are you?',
-    sendTimeInSec: 1633025456,
-    isFavourite: true,
-  ),
-  ChatBuddy(
-    id: 2,
-    name: 'Jane Smith',
-    brokerageHouseId: 102,
-    lastSendTime: '2024-10-07 14:00',
-    user: User(id: 2, name: 'janesmith', email: 'jane@example.com'),
-    message: 'Meeting tomorrow at 10?',
-    sendTimeInSec: 1633025087,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 3,
-    name: 'David Brown',
-    brokerageHouseId: 103,
-    lastSendTime: '2024-10-07 12:15',
-    user: User(id: 3, name: 'davidbrown', email: 'david@example.com'),
-    message: 'Please review the report.',
-    sendTimeInSec: 1633018052,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 4,
-    name: 'Emily Clark',
-    brokerageHouseId: 104,
-    lastSendTime: '2024-10-07 11:45',
-    user: User(id: 4, name: 'emilyclark', email: 'emily@example.com'),
-    message: "I'll send the documents later.",
-    sendTimeInSec: 1633015924,
-    isFavourite: true,
-  ),
-  ChatBuddy(
-    id: 1,
-    name: 'John Doe',
-    brokerageHouseId: 101,
-    lastSendTime: '2024-10-07 14:30',
-    user: User(id: 1, name: 'johndoe', email: 'john@example.com'),
-    message: 'Hey, how are you?',
-    sendTimeInSec: 1633025456,
-    isFavourite: true,
-  ),
-  ChatBuddy(
-    id: 2,
-    name: 'Jane Smith',
-    brokerageHouseId: 102,
-    lastSendTime: '2024-10-07 14:00',
-    user: User(id: 2, name: 'janesmith', email: 'jane@example.com'),
-    message: 'Meeting tomorrow at 10?',
-    sendTimeInSec: 1633025087,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 3,
-    name: 'David Brown',
-    brokerageHouseId: 103,
-    lastSendTime: '2024-10-07 12:15',
-    user: User(id: 3, name: 'davidbrown', email: 'david@example.com'),
-    message: 'Please review the report.',
-    sendTimeInSec: 1633018052,
-    isFavourite: false,
-  ),
-  ChatBuddy(
-    id: 4,
-    name: 'Emily Clark',
-    brokerageHouseId: 104,
-    lastSendTime: '2024-10-07 11:45',
-    user: User(id: 4, name: 'emilyclark', email: 'emily@example.com'),
-    message: "I'll send the documents later.",
-    sendTimeInSec: 1633015924,
-    isFavourite: true,
-  ),
-];

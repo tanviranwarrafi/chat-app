@@ -1,5 +1,7 @@
 import 'package:app/components/headers/sheet_header_1.dart';
+import 'package:app/di.dart';
 import 'package:app/extensions/flutter_ext.dart';
+import 'package:app/libraries/flush_popup.dart';
 import 'package:app/models/chat/chat_buddy.dart';
 import 'package:app/themes/colors.dart';
 import 'package:app/themes/shadows.dart';
@@ -50,17 +52,24 @@ class _BottomSheetView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20),
           children: [
-            _OptionItem(icon: Assets.svg.info_1, label: 'View Profile'),
+            _OptionItem(
+              icon: Assets.svg.info,
+              label: 'View Profile',
+              onTap: () => sl<FlushPopup>().onWarning(message: 'In development mode'),
+            ),
             const Divider(color: offWhite1),
-            _OptionItem(icon: Assets.svg.calendar_blank_1, label: 'Book Appointment'),
+            _OptionItem(
+              icon: Assets.svg.phone,
+              label: 'Contact Info',
+              onTap: () => sl<FlushPopup>().onWarning(message: 'In development mode'),
+            ),
             const Divider(color: offWhite1),
-            _OptionItem(icon: Assets.svg.calendar_check_1, label: 'Current Appointment', count: 05),
-            const Divider(color: offWhite1),
-            _OptionItem(icon: Assets.svg.list_check, label: 'All Appointment'),
-            const Divider(color: offWhite1),
-            _OptionItem(icon: Assets.svg.phone, label: 'Contact Info'),
-            const Divider(color: offWhite1),
-            _OptionItem(icon: Assets.svg.trash, label: 'Delete Conversation', color: error, onTap: () => _onTap(onTap: onDelete)),
+            _OptionItem(
+              icon: Assets.svg.trash,
+              label: 'Delete Conversation',
+              color: error,
+              onTap: () => _onTap(onTap: onDelete),
+            ),
           ],
         ),
         SizedBox(height: BOTTOM_GAP),

@@ -1,8 +1,6 @@
 import 'package:app/animations/tween_list_item.dart';
 import 'package:app/components/loaders/fading_circle.dart';
-import 'package:app/di.dart';
 import 'package:app/extensions/flutter_ext.dart';
-import 'package:app/libraries/formatters.dart';
 import 'package:app/models/chat/chat_buddy.dart';
 import 'package:app/services/routes.dart';
 import 'package:app/themes/colors.dart';
@@ -31,7 +29,8 @@ class RecentMessagesList extends StatelessWidget {
 
   Widget _messageItemCard(BuildContext context, int index) {
     var buddy = buddies[index];
-    var isUnread = buddy.readT == null;
+    var isUnread = true;
+    // var isUnread = buddy.readT == null;
     return TweenListItem(
       index: index,
       child: InkWell(
@@ -59,19 +58,19 @@ class RecentMessagesList extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            buddy.name ?? '',
+                            buddy.user?.name ?? '',
                             maxLines: 1,
                             overflow: TextOverflow.fade,
                             style: TextStyles.text15_500.copyWith(color: isUnread ? grey1 : grey2),
                           ),
                         ),
                         const SizedBox(width: 12),
-                        Text(
+                        /*Text(
                           sl<Formatters>().formatTime(buddy.lastSendTime),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyles.text12_400.copyWith(color: grey3),
-                        ),
+                        ),*/
                       ],
                     ),
                     const SizedBox(height: 01),

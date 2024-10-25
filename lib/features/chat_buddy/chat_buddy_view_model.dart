@@ -43,12 +43,6 @@ class ChatBuddyViewModel with ChangeNotifier {
 
   /* ----- Use For Other View Models ----- */
 
-  void onChangeFavourite(ChatBuddy buddy, bool status) {
-    var index = _getBuddyIndex(buddy);
-    if (index >= 0) buddies[index].isFavourite = status;
-    notifyListeners();
-  }
-
   int _getBuddyIndex(ChatBuddy buddy) {
     if (!buddies.haveList) return -1;
     // var user = sl<StorageService>().user;
@@ -60,21 +54,15 @@ class ChatBuddyViewModel with ChangeNotifier {
     return -1;
   }
 
-  /*bool _checkBrokerageHouseId(ChatBuddy listBuddy, ChatBuddy buddy) {
-    var isUserId = listBuddy.user?.id?.parseInt == buddy.user?.id.parseInt;
-    var isBrokerageHouseId = listBuddy.brokerageHouseId.parseInt == buddy.brokerageHouseId.parseInt;
-    return isUserId && isBrokerageHouseId;
-  }*/
-
   void onRemoveChatBuddy(ChatBuddy buddy) {
     var index = _getBuddyIndex(buddy);
     if (index < 0) return;
-    if (buddies[index].favourite == false) {
+    /*if (buddies[index].favourite == false) {
       buddies.removeAt(index);
     } else {
       buddies[index].message = 'No message';
       buddies[index].readT = '$currentDate';
-    }
+    }*/
     notifyListeners();
   }
 
@@ -90,9 +78,9 @@ class ChatBuddyViewModel with ChangeNotifier {
     } else {
       buddies[index].message = message.message ?? '';
     }
-    buddies[index].sendT = message.sendTime;
-    buddies[index].lastSendTime = message.sendTime;
-    buddies[index].readT = message.sendTime;
+    // buddies[index].sendT = message.sendTime;
+    // buddies[index].lastSendTime = message.sendTime;
+    // buddies[index].readT = message.sendTime;
     notifyListeners();
   }
 
@@ -106,9 +94,9 @@ class ChatBuddyViewModel with ChangeNotifier {
     } else {
       buddies[index].message = message.message ?? '';
     }
-    buddies[index].sendT = message.sendTime;
-    buddies[index].lastSendTime = message.sendTime;
-    buddies[index].readT = message.readTime;
+    // buddies[index].sendT = message.sendTime;
+    // buddies[index].lastSendTime = message.sendTime;
+    // buddies[index].readT = message.readTime;
     notifyListeners();
   }
 }

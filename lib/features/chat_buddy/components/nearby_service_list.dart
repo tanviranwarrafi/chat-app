@@ -64,7 +64,7 @@ class NearbyServiceList extends StatelessWidget {
               ],
             ),
             Text(
-              buddy.name ?? '',
+              buddy.user?.name ?? '',
               maxLines: 1,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
