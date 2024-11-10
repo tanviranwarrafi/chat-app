@@ -48,6 +48,7 @@ class NearbyServiceList extends StatelessWidget {
                   radius: 24,
                   borderWidth: 0.5,
                   borderColor: grey3,
+                  image: buddy.user?.avatar,
                   backgroundColor: transparent,
                   placeholder: const FadingCircle(size: 14),
                   errorWidget: Image.asset(Assets.png_image.profile, height: 48),

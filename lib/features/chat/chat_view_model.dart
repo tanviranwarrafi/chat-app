@@ -123,9 +123,6 @@ class ChatViewModel with ChangeNotifier {
   Future<void> onDeleteMessages() async {
     loader = true;
     notifyListeners();
-    // var isAgent = sl<StorageService>().user.is_agent_type;
-    // var brokerageId = isAgent ? sender.brokerageHouseId : buddy.brokerageHouseId;
-    // var response = await sl<ChatRepository>().deleteAllConversations(buddy: buddy, houseId: brokerageId!);
     var response = await sl<ChatRepository>().deleteAllConversations(receiver);
     if (response) messages.clear();
     if (response) backToPrevious();
@@ -135,7 +132,6 @@ class ChatViewModel with ChangeNotifier {
 
   Future<void> addMessage() async {
     var context = navigatorKey.currentState!.context;
-    // var user = sl<StorageService>().user;
     var dateMillisecond = currentDate.millisecondsSinceEpoch;
     var contents = <ChatContent>[];
     if (images.haveList) images.forEach((v) => contents.add(ChatContent(doc: v, type: 'image/png', path: v.file?.path)));
@@ -191,26 +187,3 @@ class ChatViewModel with ChangeNotifier {
     unawaited(scrollDown());
   }
 }
-
-/*Future<Uint8List?> _modifyPickedImage(XFile image) async {
-    io.File pickedFile = io.File(image.path);
-    var compressedImage = await sl<FileCompressor>().compressImageFile(io.File(pickedFile.path));
-    if (compressedImage == null) return null;
-    var croppedImage = await sl<ImageCroppers>().cropImage(image: compressedImage);
-    if (croppedImage == null) return null;
-    var file = io.File(croppedImage.path);
-    var unit8Image = await sl<ImageService>().fileToUnit8List(file);
-    return unit8Image;
-  }*/
-
-/*Future<void> uploadFile() async {
-    var fileList = await sl<FilePickers>().pickMultipleFile();
-    if (fileList.isEmpty) return;
-    fileLoader = fileList.length;
-    notifyListeners();
-    var modifiedFiles = await sl<FileHelper>().renderFilesInModel(fileList);
-    if (modifiedFiles.haveList) documents.insertAll(0, modifiedFiles);
-    isUploadType = false;
-    fileLoader = 0;
-    notifyListeners();
-  }*/

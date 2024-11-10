@@ -30,7 +30,6 @@ class RecentMessagesList extends StatelessWidget {
   Widget _messageItemCard(BuildContext context, int index) {
     var buddy = buddies[index];
     var isUnread = true;
-    // var isUnread = buddy.readT == null;
     return TweenListItem(
       index: index,
       child: InkWell(
@@ -45,9 +44,9 @@ class RecentMessagesList extends StatelessWidget {
               CircleImage(
                 borderWidth: 1,
                 borderColor: grey3,
+                image: buddy.user?.avatar,
                 placeholder: const FadingCircle(size: 22),
                 errorWidget: Image.asset(Assets.png_image.profile, height: 40),
-                // errorWidget: SvgImage(image: Assets.svg.user_1, height: 28, color: primary),
               ),
               const SizedBox(width: 14),
               Expanded(
