@@ -24,7 +24,7 @@ class ChatUserInfo extends StatelessWidget {
           errorWidget: Image.asset(Assets.png_image.profile, height: 72),
         ),
         const SizedBox(height: 12),
-        Text(buddy.name ?? '', textAlign: TextAlign.center, style: TextStyles.text18_600.copyWith(color: grey1)),
+        Text(buddy.user?.name ?? '', textAlign: TextAlign.center, style: TextStyles.text18_600.copyWith(color: grey1)),
         const SizedBox(height: 06),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

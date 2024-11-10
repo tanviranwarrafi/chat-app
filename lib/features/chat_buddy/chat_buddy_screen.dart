@@ -44,11 +44,13 @@ class _ChatBuddyScreenState extends State<ChatBuddyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: SizeConfig.width,
-      height: SizeConfig.height,
-      padding: EdgeInsets.only(top: SizeConfig.statusBar),
-      child: _modelData.loader ? const ScreenLoader() : _screenView(context),
+    return Scaffold(
+      body: Container(
+        width: SizeConfig.width,
+        height: SizeConfig.height,
+        padding: EdgeInsets.only(top: SizeConfig.statusBar),
+        child: _modelData.loader ? const ScreenLoader() : _screenView(context),
+      ),
     );
   }
 

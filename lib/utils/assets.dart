@@ -18,13 +18,11 @@ class _SvgIcons {
 
   String arrow_left = 'assets/svg_icons/arrow_left.svg';
   String bell = 'assets/svg_icons/bell.svg';
-  String calendar_blank_1 = 'assets/svg_icons/calendar_blank_1.svg';
-  String calendar_check_1 = 'assets/svg_icons/calendar_check_1.svg';
   String camera = 'assets/svg_icons/camera.svg';
   String close = 'assets/svg_icons/close.svg';
   String dots_three_vertical = 'assets/svg_icons/dots_three_vertical.svg';
   String image_square = 'assets/svg_icons/image_square.svg';
-  String info_1 = 'assets/svg_icons/info_1.svg';
+  String info = 'assets/svg_icons/info.svg';
   String list_check = 'assets/svg_icons/list_check.svg';
   String map_pin = 'assets/svg_icons/map_pin.svg';
   String paper_clip = 'assets/svg_icons/paper_clip.svg';
@@ -32,9 +30,5 @@ class _SvgIcons {
   String phone = 'assets/svg_icons/phone.svg';
   String search = 'assets/svg_icons/search.svg';
   String trash = 'assets/svg_icons/trash.svg';
-  String user_1 = 'assets/svg_icons/user_1.svg';
-  // String user_2 = 'assets/svg_icons/user_2.svg';
-  // String user_group = 'assets/svg_icons/user_group.svg';
-  // String users_1 = 'assets/svg_icons/users_1.svg';
-  // String users_2 = 'assets/svg_icons/users_2.svg';
+  String user = 'assets/svg_icons/user.svg';
 }
